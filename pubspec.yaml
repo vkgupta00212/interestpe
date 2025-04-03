@@ -1,0 +1,41 @@
+name: interestpe
+description: "A new Flutter project."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.1
+
+dependencies:
+  flutter:
+    sdk: flutter
+  provider: ^6.0.0 # Use the latest version
+  flutter_svg: ^2.0.17
+  cupertino_icons: ^1.0.8
+  google_nav_bar: ^5.0.7
+  flutter_launcher_icons: ^0.14.3
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter_launcher_icons:
+    android: "launcher_icon"
+    ios: true
+    image_path: "assets/ilogo.png"
+
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/img/  # Ensure this line is properly indented and part of the assets list
+    - assets/icons/
+    - assets/img/bg2.jpg
+    - assets/img/backGround.svg
