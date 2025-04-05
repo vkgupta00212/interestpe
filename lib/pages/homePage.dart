@@ -1,107 +1,72 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../widgets/chat_card.dart';
-import '../model/ChatModel.dart';
+import 'package:provider/provider.dart';
+import '../constants.dart';
+import '../model/data.dart';
+import '../widgets/header/header.dart';
+import 'HomePage/customer_tab.dart';
+import '../widgets/chat/search_box.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
 
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<ChatModel> chats = [
-    ChatModel(
-      "Vishal gupta",
-      "12:00 PM",
-      "Hello",
-    ),
-    ChatModel(
-      "Manish Chaurasiya",
-      "12:00 PM",
-      "Hello Manish",
-    ),
-    ChatModel(
-      "Ashish Raj",
-      "12:00 PM",
-      "Hello Ashish",
-    ),
-    ChatModel(
-      "Nitish",
-      "12:00 PM",
-      "How are you Nitish ?",
-    ),
-  ];
+class Homepage extends StatelessWidget {
+  const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Container(
-          alignment: Alignment.centerLeft,
-          padding: const EdgeInsets.only(left: 30), // Align text to the right
-          child: const Text(
-            'interestPe',
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        floatingActionButton: FloatingActionButton.extended(
+          backgroundColor: kButtonBackground,
+          elevation: 3.0,
+          onPressed: () {},
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+            side: BorderSide(
+              color: kPrimaryColor,
+              width: 0.5,
+            ),
+          ),
+          icon:Icon(
+            CupertinoIcons.person_add,
+            color: kPrimaryColor,
+            size: 25,
+          ),
+          label: const Text(
+            'Add Customer',
             style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
+              color: kPrimaryColor,
+              fontSize: 15.0,
+              fontWeight: FontWeight.bold
             ),
           ),
         ),
-        elevation: 4, // AppBar shadow
-        automaticallyImplyLeading: false, // Remove the back button
-        titleSpacing: 0, // Remove default title spacing
-      ),
-      body: ListView.builder(
-        itemCount: chats.length,
-        itemBuilder: (context, index) => ChatUserCard(
-          key: Key('chat_user_card_$index'), // Add a unique key here
-          chatmodel: chats[index],
+        body: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Column(
+              children: [
+                const SizedBox(height: 15.0),
+                const Header(),
+                const SizedBox(height: 20.0),
+                const SearchBox(),
+                const SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 250,
+                    ),
+                  ],
+                ),
+                const Expanded(
+                  child: CustomerTab(),
+                )
+              ],
+            ),
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Handle "ADD CUSTOMER" button press
-          _showAddCustomerDialog(context);
-        },
-        child: const Icon(Icons.add),
-      ),
-    );
-  }
-
-  // Function to show a dialog for adding a new customer
-  void _showAddCustomerDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        String newCustomerName = '';
-        return AlertDialog(
-          title: const Text('Add Customer'),
-          content: TextField(
-            decoration: const InputDecoration(hintText: 'Enter customer name'),
-            onChanged: (value) {
-              newCustomerName = value;
-            },
-          ),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the dialog
-              },
-              child: const Text('Cancel'),
-            ),
-            TextButton(
-              onPressed: () {
-                // Add the new customer to the list (you can use a state management solution for this)
-                // For now, just print the name
-                print('New Customer: $newCustomerName');
-                Navigator.pop(context); // Close the dialog
-              },
-              child: const Text('Add'),
-            ),
-          ],
-        );
-      },
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:interestpe/widgets/profile_moreCard.dart';
+import 'package:interestpe/widgets/profile/profile_moreCard.dart';
+
 
 class profileNavbar extends StatelessWidget {
   const profileNavbar({super.key});

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:interestpe/model/PayHistoryModel.dart';
 import 'package:interestpe/utility/routes.dart';
-import 'package:interestpe/widgets/PayHistory_card.dart';
+
+import '../widgets/payHistory/PayHistory_card.dart';
+
 
 class PayHistory extends StatefulWidget {
   const PayHistory({Key? key}) : super(key: key);

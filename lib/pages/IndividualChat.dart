@@ -2,7 +2,8 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import '../model/ChatModel.dart';
-import '../widgets/profileNavbar.dart';
+import '../widgets/profile/profileNavbar.dart';
+
 
 class IndividualChat extends StatefulWidget{
   const IndividualChat({Key? key, required this.chatmodel}) : super(key: key);

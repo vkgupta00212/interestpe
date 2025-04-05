@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:interestpe/widgets/moreCard.dart';
-import '../pages/homePage.dart';
 import '../pages/morePage.dart';
+import '../pages/homePage.dart';
 
 
 class DataModel with ChangeNotifier {
   int _currentIndex = 0; // Tracks the current selected index
   final List<Widget> _navigationOptions = [
-    const HomePage(),
+    const Homepage(),
     const MorePage(),
   ];
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_launcher_icons/xml_templates.dart';
 
 const kPrimaryColor = Color(0xff07327E);
 
@@ -7,6 +8,17 @@ const kSecondaryColor = Color(0xff212121);
 const kHighLightColor = Color(0xffeef4ef);
 
 const kSecondaryAccent = Color(0xff757784);
+
+const kNavBackground = Color(0xFFF2F2F2);
+
+const kButtonBackground = Color(0xFFE0E4F5);
+
+const kNanvIconBackground = Color(0x9795C7E7);
+
+const kNanvbarBackground = Color(0xFFFFFFFF);
+
+
+
 
 const kTextFieldStyle = TextStyle(
   fontSize: 14.5,
