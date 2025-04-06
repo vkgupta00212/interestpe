@@ -18,7 +18,7 @@ class Header extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           decoration: BoxDecoration(
-            color: Color(0xFFD2ECFF), // Light blue background
+            color: kButtonBackground, // Light blue background
             borderRadius: BorderRadius.circular(40), // Pill shape
             border: Border.all(
               color: Color(0xFF003087), // Dark blue border
@@ -40,7 +40,7 @@ class Header extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
           decoration: BoxDecoration(
-            color: Color(0xFFD2ECFF), // Light blue background
+            color: kButtonBackground, // Light blue background
             borderRadius: BorderRadius.circular(40), // Pill shape
             border: Border.all(
               color: Color(0xFF003087), // Dark blue border

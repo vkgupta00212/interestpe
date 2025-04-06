@@ -1,13 +1,23 @@
 import 'dart:ffi';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import '../constants.dart';
 import '../model/ChatModel.dart';
 import '../widgets/profile/profileNavbar.dart';
 
 
 class IndividualChat extends StatefulWidget{
-  const IndividualChat({Key? key, required this.chatmodel}) : super(key: key);
-  final ChatModel chatmodel;
+
+
+
+  const IndividualChat({Key? key,
+  }) : super(key: key);
+
+  // final ChatModel chatmodel;
+  // final int color;
+  // final String name;
+
   @override
   _IndividualChatState createState()=> _IndividualChatState();
 
@@ -23,7 +33,9 @@ class _IndividualChatState extends State<IndividualChat>{
       appBar: AppBar(
         elevation: 1,
         titleSpacing: 0,
-        title: _buildProfileSection(),
+        title: _buildProfileSection(
+            0xff5099f5,"Vishal Gupta"
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -79,37 +91,49 @@ class _IndividualChatState extends State<IndividualChat>{
   }
 }
 
-Widget _buildProfileSection() {
+Widget _buildProfileSection(int color, String name) {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
     children: [
-      const CircleAvatar(
-    radius: 24,
-    backgroundColor: Colors.grey,
-    child: Icon(Icons.person, color: Colors.white),
-  ),
-  const SizedBox(width: 12),
-  Column(
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-    const Text('Ashish raj', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-  GestureDetector(
-  onTap: () {/* Handle profile view */},
-  child: const Text('View Profile', style: TextStyle(color: Colors.blue, fontSize: 14)),)
-  ],
-  ),
-
-  // This will push the call icon to the far right
-  Spacer(), // ← Critical change
-
-  IconButton(
-  icon: const Icon(Icons.call),
-  onPressed: () {},
-  padding: EdgeInsets.zero, // Removes default padding
-  constraints: BoxConstraints(), // Removes minimum tap area
-  ),
-  ],
+      Row(
+        children: [
+          const SizedBox(width: 8),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                name,
+                style: const TextStyle(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+              ),
+              const Text(
+                "View Profile",
+                style: TextStyle(
+                  color: Colors.blue,
+                  fontSize: 12,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+      Container(
+        margin: EdgeInsets.only(
+          right: 15,
+        ),
+        child: IconButton(
+          icon: const Icon(CupertinoIcons.phone),
+          onPressed: () {
+            // Add your call logic here
+          },
+        ),
+      ),
+    ],
   );
-  }
+}
+
 
 Widget _buildPaymentItem(String amount, String time) {
   return Container(

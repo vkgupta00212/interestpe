@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:interestpe/utility/routes.dart';
 import 'package:interestpe/widgets/profile/profile_moreCard.dart';
+import '../../pages/interest_chat/lend_money.dart';
+import '../../pages/interest_chat/accept_money.dart';
 
 
 class profileNavbar extends StatelessWidget {
@@ -38,7 +41,7 @@ class profileNavbar extends StatelessWidget {
                 bottomLeft: Radius.circular(20.0),
                 bottomRight: Radius.circular(20.0),
               ),
-              child: _buildActionButtons(),
+              child: _buildActionButtons(context),
             ),
             ),
 
@@ -49,7 +52,7 @@ class profileNavbar extends StatelessWidget {
   }
 }
 
-Widget _buildActionButtons() {
+Widget _buildActionButtons(BuildContext context) {
   return Container(
     color: Colors.grey[200], // Light grey background
     child: Row(
@@ -64,8 +67,23 @@ Widget _buildActionButtons() {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white, // White button background
                 ),
-                onPressed: () {},
-              )
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      opaque: false, // Allow transparency for overlay effect if needed
+                      transitionDuration: const Duration(milliseconds: 250),
+                      pageBuilder: (context, animation, secondaryAnimation) => LendMoney(),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                          opacity: animation,
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
           ),
         ),
 
@@ -81,11 +99,25 @@ Widget _buildActionButtons() {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white, // White button background
                 ),
-                onPressed: () {},
-              )
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    PageRouteBuilder(
+                      opaque: false, // Allow transparency for overlay effect if needed
+                        transitionDuration: const Duration(milliseconds: 250),
+                          pageBuilder: (context, animation, secondaryAnimation) => AcceptMoney(),
+                          transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                        return FadeTransition(
+                        opacity: animation,
+                        child: child,
+                        );
+                      },
+                     ),
+                    );
+                }
+                ),
           ),
         ),
-
       ],
     ),
   );

@@ -11,7 +11,7 @@ const kSecondaryAccent = Color(0xff757784);
 
 const kNavBackground = Color(0xFFF2F2F2);
 
-const kButtonBackground = Color(0xFFE0E4F5);
+const kButtonBackground = Color(0xFFE6F2FE);
 
 const kNanvIconBackground = Color(0x9795C7E7);
 

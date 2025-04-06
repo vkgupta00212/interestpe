@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:interestpe/constants.dart';
 
-class  LendMoney extends StatelessWidget{
-  const LendMoney({super.key});
+class  AcceptMoney extends StatelessWidget{
+  const AcceptMoney({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          elevation: 1,
-          titleSpacing: 0,
-          title: _buildProfileSection(
-              0xff5099f5,"Vishal Gupta"
-          ),
+      appBar: AppBar(
+        elevation: 1,
+        titleSpacing: 0,
+        title: _buildProfileSection(
+            0xff5099f5,"Vishal Gupta"
         ),
-      body: _buildLendContent(),
+      ),
     );
   }
 }
@@ -54,11 +52,10 @@ Widget _buildProfileSection(int color, String name) {
                   fontSize: 16,
                 ),
               ),
-              SizedBox(height: 2),
               const Text(
-                "₹0",
+                "View Profile",
                 style: TextStyle(
-                  color: kPrimaryColor,
+                  color: Colors.blue,
                   fontSize: 12,
                 ),
               ),
@@ -70,23 +67,7 @@ Widget _buildProfileSection(int color, String name) {
         margin: EdgeInsets.only(
           right: 15,
         ),
-      ),
+        ),
     ],
-  );
-}
-
-Widget _buildLendContent (){
-  TextEditingController _amountController = TextEditingController();
-  return Padding(
-    padding: const EdgeInsets.all(16.0),
-    child: TextField(
-      controller: _amountController,
-      keyboardType: TextInputType.number,
-      decoration: InputDecoration(
-        prefixIcon: Icon(Icons.currency_rupee),
-        hintText: "0",
-        hintStyle: TextStyle(fontSize: 25, color: Colors.grey),
-      ),
-    ),
   );
 }
