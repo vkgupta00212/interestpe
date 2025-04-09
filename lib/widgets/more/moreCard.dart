@@ -26,7 +26,7 @@ class BusinessBottomSheet extends StatelessWidget {
                   Icons.person_outline,
                   "Profile",
                       () {
-                    Navigator.pushNamed(context, MyRoutes.profile);
+                    Navigator.pushNamed(context, MyRoutes.profileMain);
                   },
                 ),
                 _buildMenuItem(

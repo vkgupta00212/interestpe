@@ -5,5 +5,6 @@ class MyRoutes {
   static String otp = "/Otp";
   static String individualChat = "/IndividualChat";
   static String lendMoney = "/LendMoney";
-  static String profile = "/Profile";
+  static String profileEdit = "/ProfileEdit";
+  static String profileMain = "/ProfileMain";
   }
