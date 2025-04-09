@@ -41,5 +41,4 @@ flutter:
     - assets/
     - assets/img/  # Ensure this line is properly indented and part of the assets list
     - assets/icons/
-    - assets/img/bg2.jpg
-    - assets/img/backGround.svg
+

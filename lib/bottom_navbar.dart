@@ -142,7 +142,7 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
             child: NavigationBar(
               backgroundColor: kNanvbarBackground,
               elevation: 3,
-              indicatorColor: Colors.blue.withOpacity(0.3),
+              indicatorColor: Colors.grey.withOpacity(0.3),
               selectedIndex: value.currentIndex,
               onDestinationSelected: (int index) {
                 if (index == 1) {
@@ -161,13 +161,14 @@ class _NavBarState extends State<NavBar> with SingleTickerProviderStateMixin {
               destinations: const [
                 NavigationDestination(
                   icon: Icon(CupertinoIcons.house_alt),
-                  selectedIcon: Icon(CupertinoIcons.house_alt_fill),
-                  label: 'Ledger',
+                  selectedIcon: Icon(CupertinoIcons.house_alt_fill,color: kPrimaryColor,),
+                  label:"Home",
                 ),
                 NavigationDestination(
                   icon: Icon(CupertinoIcons.arrow_up_circle),
                   selectedIcon: Icon(CupertinoIcons.arrow_up_circle_fill),
-                  label: 'Settings',
+                  label: 'More',
+
                 ),
               ],
             ),

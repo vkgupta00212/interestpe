@@ -37,35 +37,21 @@ class Header extends StatelessWidget {
 
         const Spacer(),
 
-        Container(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-          decoration: BoxDecoration(
-            color: kButtonBackground, // Light blue background
-            borderRadius: BorderRadius.circular(40), // Pill shape
-            border: Border.all(
-              color: Color(0xFF003087), // Dark blue border
-              width: 0.5,
-            ),
-          ),
-          child: Row(
-            children: [
-
-              Icon(CupertinoIcons.share,
-                size: 18,
+           GestureDetector(
+              // onTap: () => showModalBottomSheet(
+              //   context: context,
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(20),
+              //   ),
+              //   builder: (context) {
+              //     return const BusinessBottomSheet();
+              //   },
+              // ),
+              child: const CircleAvatar(
+                radius: 16.5,
+                backgroundImage: AssetImage('assets/img/user.jpeg'),
               ),
-
-              SizedBox(width: 10),
-
-              Text(
-                "Share",style:TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 12,
-              ),
-              ),
-
-            ],
-          ),
-        ),
+            )
       ],
     );
   }

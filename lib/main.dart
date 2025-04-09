@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:interestpe/pages/IndividualChat.dart';
 import 'package:interestpe/pages/Login/otp.dart';
+import 'package:interestpe/pages/MorePages/profile.dart';
 import 'package:interestpe/pages/interest_chat/lend_money.dart';
 import 'package:provider/provider.dart';
 import 'model/ChatModel.dart';
@@ -38,6 +39,7 @@ class MyApp extends  StatelessWidget{
         MyRoutes.otp: (context) => Otp(),
         MyRoutes.individualChat:(context) => IndividualChat(),
         MyRoutes.lendMoney:(context) => LendMoney(),
+        MyRoutes.profile:(context) => ProfilePage(),
       },
     );
   }

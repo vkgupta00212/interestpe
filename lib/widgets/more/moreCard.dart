@@ -1,6 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:interestpe/utility/routes.dart';
 import '../../constants.dart';
-
 
 class BusinessBottomSheet extends StatelessWidget {
   const BusinessBottomSheet({super.key});
@@ -21,19 +22,61 @@ class BusinessBottomSheet extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildMenuItem(Icons.person_outline, "Profile"),
-                _buildMenuItem(Icons.help_outline, "Help & Support"),
-                _buildMenuItem(Icons.description_outlined, "T & C"),
-                _buildMenuItem(Icons.settings_outlined, "Settings"),
+                _buildMenuItem(
+                  Icons.person_outline,
+                  "Profile",
+                      () {
+                    Navigator.pushNamed(context, MyRoutes.profile);
+                  },
+                ),
+                _buildMenuItem(
+                  Icons.handshake_outlined,
+                  "Help & Support",
+                      () {
+                    print("Help & Support tapped");
+                  },
+                ),
+                _buildMenuItem(
+                  Icons.description_outlined,
+                  "T & C",
+                      () {
+                    print("T & C tapped");
+                  },
+                ),
+                _buildMenuItem(
+                  Icons.settings_outlined,
+                  "Settings",
+                      () {
+                    print("Settings tapped");
+                  },
+                ),
               ],
             ),
             const SizedBox(height: 16), // Add spacing between rows
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildMenuItem(Icons.privacy_tip_outlined, "Privacy & Policy"),
-                _buildMenuItem(Icons.share_outlined, "Share"),
-                _buildMenuItem(Icons.assessment_outlined, "Master Report"),
+                _buildMenuItem(
+                  Icons.privacy_tip_outlined,
+                  "Privacy & Policy",
+                      () {
+                    print("Privacy & Policy tapped");
+                  },
+                ),
+                _buildMenuItem(
+                  Icons.share_outlined,
+                  "Share",
+                      () {
+                    print("Share tapped");
+                  },
+                ),
+                _buildMenuItem(
+                  Icons.assessment_outlined,
+                  "Master Report",
+                      () {
+                    print("Master Report tapped");
+                  },
+                ),
                 const SizedBox(width: 70), // Maintain alignment
               ],
             ),
@@ -43,36 +86,38 @@ class BusinessBottomSheet extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuItem(IconData icon, String label) {
+  Widget _buildMenuItem(IconData icon, String label, VoidCallback onTap) {
     return SizedBox(
-        width: 70,
-        height: 90,
-
+      width: 70,
+      height: 90,
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(12), // optional ripple radius
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-          Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-              color: kNanvIconBackground,
-              shape: BoxShape.circle,
-
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: kNanvIconBackground,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(icon, size: 24, color: const Color(0xFF2C2B2B)),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ],
         ),
-        child: Icon(icon, size: 24, color: kPrimaryColor),
-      ),
-      const SizedBox(height: 8),
-      Text(
-      label,
-      textAlign: TextAlign.center,
-      style: const TextStyle(
-      fontSize: 12,
-      fontWeight: FontWeight.w500,
-      ),
-      maxLines: 2,
-      overflow: TextOverflow.ellipsis,
-      ),
-      ],
       ),
     );
   }
